@@ -20,11 +20,11 @@ int main(void)
 	int Sll = sizeof(lli);
 	int Sf = sizeof(f);
 	/* printf function - prints to screen */
-	printf("Size of a char: %d bytes(s)\n", Sc);
-	printf("Size of a int: %d bytes(s)\n", Si);
-	printf("Size of a long int: %d bytes(s)\n", Sl);
-	printf("Size of a long long int: %d bytes(s)\n", Sll);
-	printf("Size of a float: %d bytes(s)\n", Sf);
+	printf("Size of a char: %d byte(s)\n", Sc);
+	printf("Size of an int: %d byte(s)\n", Si);
+	printf("Size of a long int: %d byte(s)\n", Sl);
+	printf("Size of a long long int: %d byte(s)\n", Sll);
+	printf("Size of a float: %d byte(s)\n", Sf);
 
 	return (0);
 }
