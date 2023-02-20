@@ -15,9 +15,9 @@ int main(void)
 	c = 'a';
 	while (c != '{')
 	{
-		printf("%c", c);
+		putchar(c);
 		c += 1;
 	}
-	printf("\n");
+	putchar('\n');
 	return (0);
 }
