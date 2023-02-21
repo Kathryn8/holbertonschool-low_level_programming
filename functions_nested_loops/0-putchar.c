@@ -1,9 +1,4 @@
-#ifndef HEADER_FILE
-#define HEADER_FILE
-
-#include "_putchar.c"
-
-#endif
+#include "main.h"
 
 /**
  * main - Entry point
