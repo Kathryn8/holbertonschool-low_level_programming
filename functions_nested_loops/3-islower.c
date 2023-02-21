@@ -2,6 +2,7 @@
 
 /**
  * _islower - Entry point
+ * @c: A single character
  *
  * Return: 1 if lower, otherwise 0.
  */
@@ -14,5 +15,5 @@ int _islower(int c)
 	else
 	{
 		return (0);
-	};
+	}
 }
