@@ -1,4 +1,4 @@
-#include <main.h>
+#include "_putchar.c"
 
 /**
  * main - Entry point
@@ -8,6 +8,6 @@
 
 int main(void)
 {
-	printf("_putchar\n");
+	_putchar('T');
 	return (0);
 }
