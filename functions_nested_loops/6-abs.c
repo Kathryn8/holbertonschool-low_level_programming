@@ -2,7 +2,7 @@
 
 /**
  * _abs - Entry point
- * @int: A single integer
+ * @n: A single integer
  *
  * Return: the absolute value of an integer
  */
