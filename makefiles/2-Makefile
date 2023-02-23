@@ -1,15 +1,15 @@
 CC = gcc
-SRC := main.c school.c
-OBJ := $(patsubst .c,.o,$(SRC))
+SRC = main.c school.c
+OBJ = $(subst .c,.o,$(SRC))
 NAME = school
 
 all: $(NAME) $(OBJ)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) -o $(NAME) $(OBJ)
 
 $(OBJ): $(SRC)
-	$(CC) -c -o $(OBJ) $(SRC)
+	$(CC) -c $(SRC)
 
 #main.o: main.c
 #	$(CC) -c -o main.o main.c
