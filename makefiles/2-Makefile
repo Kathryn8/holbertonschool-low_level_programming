@@ -1,15 +1,18 @@
 CC = gcc
-SRC = school.c main.c
-OBJ := $(SRC:%.c=%.o)
-NAME := school
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
 
 all: $(NAME) $(OBJ)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+#	$(CC) $^ -o $(NAME)
 
-$(OBJ): $(SRC) m.h
-	$(CC) -c -o $@ $<
+$(OBJ): $(SRC)
+#	$(CC) -c -o $(SRC)
 
 clean:
 	rm -f $(NAME) $(OBJ)
+
+foobar:
+	echo "hello kathryn"
