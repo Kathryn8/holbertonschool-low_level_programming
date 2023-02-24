@@ -26,7 +26,8 @@ int main(void)
 		{
 			printf("%d", counter);
 		}
-		putchar(' ');
+		if (counter != 100)
+			putchar(' ');
 		counter = counter + 1;
 	}
 	putchar('\n');
