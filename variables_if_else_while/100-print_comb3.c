@@ -20,8 +20,11 @@ int main(void)
 		{
 			putchar(tens + '0');
 			putchar(units + '0');
-			putchar(',');
-			putchar(' ');
+			if (!(tens == 8 && units == 9))
+			{
+				putchar(',');
+				putchar(' ');
+			}
 			units = units + 1;
 		}
 		tens = tens + 1;
