@@ -8,57 +8,40 @@
 
 void times_table(void)
 {
-	int col_counter;
-	int row_counter;
-	int result;
-	int units;
-	int tens;
+	int I;
+	int j;
 
-	col_counter = 0;
-	while (col_counter <= 9)
+	I = 0;
+	while (I <= 9)
 	{
-		row_counter = 0;
-		while (row_counter <= 9)
+		j = 0;
+		while (j <= 9)
 		{
-			result = row_counter * col_counter;
-			units = result % 10;
-			tens = (result - units) / 10;
-			if (row_counter == 0)
+			if (j == 0)
 			{
 				_putchar('0');
 				_putchar(',');
-			} else if (row_counter == 9)
-			{
-				if (result < 10)
-				{
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(result + '0');
-				} else
-				{
-					_putchar(' ');
-					_putchar(tens + '0');
-					_putchar(units + '0');
-				}
 			} else
 			{
-				if (result < 10)
+				if ((j * I) < 10)
 				{
 					_putchar(' ');
 					_putchar(' ');
-					_putchar(result + '0');
-					_putchar(',');
+					_putchar((j * I) + '0');
+					if (j != 9)
+						_putchar(',');
 				} else
 				{
 					_putchar(' ');
-					_putchar(tens + '0');
-					_putchar(units + '0');
-					_putchar(',');
+					_putchar((((j * I) - ((j * I) % 10)) / 10) + '0');
+					_putchar(((j * I) % 10) + '0');
+					if (j != 9)
+						_putchar(',');
 				}
 			}
-			row_counter = row_counter + 1;
+			j = j + 1;
 		}
 		_putchar('\n');
-		col_counter = col_counter + 1;
+		I = I + 1;
 	}
 }
