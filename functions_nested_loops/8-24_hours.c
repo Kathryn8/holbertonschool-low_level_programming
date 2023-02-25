@@ -8,45 +8,37 @@
 
 void jack_bauer(void)
 {
-	int hours_counter;
-	int seconds_counter;
-	int units_hour;
-	int tens_hour;
-	int units_second;
-	int tens_second;
+	int I;
+	int j;
 
-	hours_counter = 0;
-	while (hours_counter < 24)
+	I = 0;
+	while (I < 24)
 	{
-		seconds_counter = 0;
-		while (seconds_counter < 60)
+		j = 0;
+		while (j < 60)
 		{
-			if (hours_counter == 0)
+			if (I == 0)
 			{
-				_putchar(hours_counter + '0');
-				_putchar(hours_counter + '0');
+				_putchar(I + '0');
+				_putchar(I + '0');
 			} else
 			{
-				units_hour = hours_counter % 10;
-				tens_hour = (hours_counter - units_hour) / 10;
-				_putchar(tens_hour + '0');
-				_putchar(units_hour + '0');
+				_putchar(((I - (I % 10)) / 10) + '0');
+				_putchar((I % 10) + '0');
 			}
 			_putchar(':');
-			if (seconds_counter == 0)
+			if (j == 0)
 			{
-				_putchar(seconds_counter + '0');
-				_putchar(seconds_counter + '0');
+				_putchar(j + '0');
+				_putchar(j + '0');
 			} else
 			{
-				units_second = seconds_counter % 10;
-				tens_second = (seconds_counter - units_second) / 10;
-				_putchar(tens_second + '0');
-				_putchar(units_second + '0');
+				_putchar(((j - (j % 10)) / 10) + '0');
+				_putchar((j % 10) + '0');
 			}
 			_putchar('\n');
-			seconds_counter = seconds_counter + 1;
+			j = j + 1;
 		}
-		hours_counter = hours_counter + 1;
+		I = I + 1;
 	}
 }
