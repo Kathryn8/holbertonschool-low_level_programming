@@ -35,7 +35,7 @@ void rev_string(char *s)
 
 	length = _strlen(s) - 1;
 	i = 0;
-	while (i < (length / 2))
+	while (i <= (length / 2))
 	{
 		tmp = s[i];
 		s[i] = s[length - i];
