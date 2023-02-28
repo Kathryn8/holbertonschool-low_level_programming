@@ -35,12 +35,16 @@ char *_strcpy(char *dest, char *src)
 
 	len = _strlen(src);
 	i = 0;
-	while (i <= len)
-	{
-		dest[i] = src[i];
-		i = i + 1;
-	}
 	if (*src == '\0')
-		dest = '\0';
+	{
+		*dest = '\0';
+	} else
+	{
+		while (i <= len)
+		{
+			dest[i] = src[i];
+			i = i + 1;
+		}
+	}
 	return (dest);
 }
