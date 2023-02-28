@@ -40,5 +40,7 @@ char *_strcpy(char *dest, char *src)
 		dest[i] = src[i];
 		i = i + 1;
 	}
+	if (*src == '\0')
+		dest = "";
 	return (dest);
 }
