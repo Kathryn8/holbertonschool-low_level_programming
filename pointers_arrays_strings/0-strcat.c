@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * _strlen - length of a string
@@ -33,20 +31,22 @@ char *_strcat(char *dest, char *src)
 {
 	int i;
 	int j;
-	char *tmp = malloc(sizeof(dest));
+	char *tmp = dest;
 
 	i = 0;
-	while (*(dest+i) != '0')
+	while (dest[i] != '\0')
 	{
-		*(tmp+i) = *(dest+i);
+		tmp[i] = dest[i];
 		i = i + 1;
 	}
 	j = 0;
-	while (*(src+j) != '0')
+	while (src[j] != '\0')
 	{
-		*(tmp+j) = *(src+j);
+		tmp[i] = src[j];
 		j = j + 1;
 		i = i + 1;
 	}
-	return (tmp);
+	tmp[i + 1] = '\0';
+	dest = tmp;
+	return (dest);
 }
