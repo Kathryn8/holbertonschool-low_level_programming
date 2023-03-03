@@ -22,7 +22,7 @@ char *leet(char *s)
 		{
 			if (s[i] == let[j])
 				s[i] = num[j];
-			j = j +1;
+			j = j + 1;
 		}
 		i = i + 1;
 	}
