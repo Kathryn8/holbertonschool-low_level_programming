@@ -2,7 +2,7 @@
 
 /**
  * string_toupper  - change all lowercase letter to uppercase
- * @: pointer to a char
+ * @s: pointer to a char
  *
  * Return: a string or pointer to a char
  */
