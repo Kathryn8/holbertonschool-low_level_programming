@@ -10,8 +10,7 @@
 
 int is_word_separator(char c)
 {
-	char separators[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '('\
-			     , ')', '{', '}', '\0'};
+	char separators[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}', '\0'};
 	int i = 0;
 
 	while (separators[i] != '\0')
@@ -39,8 +38,7 @@ char *cap_string(char *s)
 	{
 		if ((s[i] >= 'a' && s[i] <= 'z') && (i == 0))
 			s[i] = s[i] - 32;
-		if ((s[i] >= 'a' && s[i] <= 'z') && \
-		    (is_word_separator(s[i - 1]) == 1))
+		if ((s[i] >= 'a' && s[i] <= 'z') && (is_word_separator(s[i - 1]) == 1))
 			s[i] = s[i] - 32;
 		i = i + 1;
 	}
