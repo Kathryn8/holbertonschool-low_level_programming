@@ -22,5 +22,15 @@ void reverse_array(int *a, int n)
 			printf(", ");
 		i = i + 1;
 	}
+	if (i > n)
+	{
+		while (a[i] != '\0')
+		{
+			printf("%d", a[i]);
+			if (a[i + 1] != '\0')
+				printf(", ");
+			i = i + 1;
+		}
+	}
 	printf("\n");
 }
