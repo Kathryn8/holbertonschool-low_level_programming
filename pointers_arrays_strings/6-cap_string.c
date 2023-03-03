@@ -37,7 +37,10 @@ char *cap_string(char *s)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if ((s[i] >= 'a' && s[i] <= 'z') && (is_word_separator(s[i - 1]) == 1))
+		if ((s[i] >= 'a' && s[i] <= 'z') && (i == 0))
+			s[i] = s[i] - 32;
+		if ((s[i] >= 'a' && s[i] <= 'z') && \
+		    (is_word_separator(s[i - 1]) == 1))
 			s[i] = s[i] - 32;
 		i = i + 1;
 	}
