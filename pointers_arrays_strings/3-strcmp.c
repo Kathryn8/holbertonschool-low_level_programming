@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _strlen - length of a string
@@ -29,15 +30,12 @@ int _strlen(char *s)
 
 int _strcmp(char *s1, char *s2)
 {
-	int s1_len;
-	int s2_len;
-
-	s1_len = _strlen(s1);
-	s2_len = _strlen(s2);
-	if (s1_len > s2_len)
-		return (-13);
-	else if (s1_len < s2_len)
-		return (13);
-	else
-		return (0);
+	while (*s1 != '\0' || *s2 != '\0')
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		s1 = s1 + 1;
+		s2 = s2 + 1;
+	}
+	return (0);
 }
