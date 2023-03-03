@@ -10,8 +10,7 @@
 
 int is_word_separator(char c)
 {
-	char separators[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(',\
-			     ')', '{', '}', '\0'};
+	char separators[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}', '\0'};
 	int i = 0;
 
 	while (separators[i] != '\0')
