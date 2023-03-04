@@ -15,7 +15,7 @@ char *_strchr(char *s, char c)
 	char *ptr = NULL;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (s[i] >= '\0')
 	{
 		if (s[i] == c)
 		{
@@ -24,8 +24,5 @@ char *_strchr(char *s, char c)
 		}
 		i = i + 1;
 	}
-	if (ptr != NULL)
-		return (ptr);
-	else
-		return (0);
+	return (ptr);
 }
