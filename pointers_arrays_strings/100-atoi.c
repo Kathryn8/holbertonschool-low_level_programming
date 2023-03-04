@@ -101,7 +101,7 @@ int minus_counter(char *str)
 int _atoi(char *s)
 {
 	int i;
-	int ans;
+	unsigned int ans;
 	int minus = minus_counter(s);
 	char *start = skip_it(s);
 
