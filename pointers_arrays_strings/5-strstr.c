@@ -60,16 +60,17 @@ char *_strstr(char *haystack, char *needle)
 {
 	char *substring;
 	int same;
+	int i;
 
-	substring = _strchr(haystack, *(needle + 0));
-	same = _strcmp(substring, needle);
-
-	if (same == 0)
+	i = 0;
+	while (haystack[i] != '\0')
 	{
-		return (substring);
+		substring = _strchr(haystack, *(needle + i));
+		same = _strcmp(substring, needle);
+		if (same == 0)
+			return (substring);
+		else
+			i = i + 1;
 	}
-	else
-	{
-		return (NULL);
-	}
+	return (NULL);
 }
