@@ -5,7 +5,7 @@
 
 /**
  * check_number - Entry point
- * @c: A pointer to a string
+ * @s: A pointer to a string
  *
  * Return: 1 if string is only comprised of digits, otherwise 0.
  */
