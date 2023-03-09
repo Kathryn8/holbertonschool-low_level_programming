@@ -10,12 +10,12 @@
  * Return: void
  */
 
-int main(__attribute__((unused)) int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int x;
 	int y;
 
-	if (argv[1] && argv[2])
+	if (argc == 3)
 	{
 		x = atoi(argv[1]);
 		y = atoi(argv[2]);
