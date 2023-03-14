@@ -39,7 +39,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-	ptr = malloc(nmemb * size + size);
+	ptr = malloc(nmemb * size);
 	if (ptr == NULL)
 		return (NULL);
 	i = 0;
