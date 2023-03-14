@@ -51,7 +51,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (NULL);
 	i = 0;
 	cc[new_len] = '\0';
-	while (s1[i] != '\0')
+	while (i < _strlen(s1))
 	{
 		cc[i] = s1[i];
 		i = i + 1;
