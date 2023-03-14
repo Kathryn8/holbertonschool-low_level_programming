@@ -33,11 +33,21 @@ int _strlen(char *s)
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *ptr;
+	int *tmp;
+	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-	ptr = malloc(nmemb * size);
+	ptr = malloc(nmemb * size + size);
 	if (ptr == NULL)
 		return (NULL);
+	i = 0;
+	tmp = (int *) ptr;
+	while (i < nmemb)
+	{
+		tmp[i] = 0;
+		i = i + 1;
+	}
+	ptr = (void *)tmp;
 	return (ptr);
 }
