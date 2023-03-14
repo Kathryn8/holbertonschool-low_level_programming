@@ -46,7 +46,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		new_len = _strlen(s1) + _strlen(s2);
 	else
 		new_len = _strlen(s1) + n;
-	cc = malloc(new_len + 1);
+	cc = malloc(new_len);
 	if (cc == NULL)
 		return (NULL);
 	i = 0;
@@ -57,7 +57,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		i = i + 1;
 	}
 	j = 0;
-	while ((unsigned int)j < n)
+	while ((unsigned int)j < n && s2[j] != '\0')
 	{
 		cc[i] = s2[j];
 		j = j + 1;
