@@ -37,10 +37,8 @@ int *array_range(int min, int max)
 
 	if (min > max)
 		return (NULL);
-	len = max - min;
-	if (len == 0)
-		len = len + 1;
-	new_arr = malloc(sizeof(*new_arr) * len + 1);
+	len = (max - min) + 1;
+	new_arr = malloc(sizeof(*new_arr) * len);
 	if (new_arr == NULL)
 		return (NULL);
 	i = 0;
