@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 /**
  * _strlen - length of a string
@@ -32,36 +33,23 @@ int _strlen(char *s)
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *ptr;
-	int *int_tmp;
-	char *char_tmp;
-	unsigned int i;
+	char *ptr;
+	unsigned long long int i;
 
 	if (nmemb == 0 || size == 0)
+	{
 		return (NULL);
+	}
 	ptr = malloc(nmemb * size);
 	if (ptr == NULL)
+	{
 		return (NULL);
+	}
 	i = 0;
-	if (size == 1)
+	while (i < (nmemb * size))
 	{
-		char_tmp = (char *) ptr;
-		while (i < nmemb)
-		{
-			char_tmp[i] = 0;
-			i = i + 1;
-		}
-		ptr = (void *)char_tmp;
+		ptr[i] = 0;
+		i = i + 1;
 	}
-	else
-	{
-		int_tmp = (int *) ptr;
-		while (i < nmemb)
-		{
-			int_tmp[i] = 0;
-			i = i + 1;
-		}
-		ptr = (void *)int_tmp;
-	}
-	return (ptr);
+	return ((void *)ptr);
 }
