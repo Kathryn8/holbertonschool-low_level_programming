@@ -1,6 +1,6 @@
-#ifndef GRANDPARENT_H
-#define GRANDPARENT_H
+#ifndef __4_SUM_H__
+#define __4_SUM_H__
 
 #define SUM(x, y) ((x) + (y))
 
-#endif /* GRANDPARENT_H */
+#endif /* __4_SUM_H__ */
