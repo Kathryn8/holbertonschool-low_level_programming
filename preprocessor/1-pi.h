@@ -1,6 +1,6 @@
-#ifndef GRANDPARENT_H
-#define GRANDPARENT_H
+#ifndef __1_PI_H__
+#define __1_PI_H__
 
 #define PI 3.14159265359
 
-#endif /* GRANDPARENT_H */
+#endif /* __1_PI_H__ */
