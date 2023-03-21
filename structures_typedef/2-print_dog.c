@@ -4,10 +4,6 @@
 #include <stdlib.h>
 
 /**
- * is_null - checks if a variable is NULL
- * XXX WRITE HELPER FUNCTION HERE
- */
-/**
  * print_dog - prints a struct dog
  * @d: a pointer to the struct dog
  *
@@ -27,17 +23,13 @@ void print_dog(struct dog *d)
 	name = d->name;
 	age = d->age;
 	owner = d->owner;
-
 	if (name != NULL)
 		printf("Name: %s\n", name);
 	else
-		printf("Name: (nil)");
-	if (age)
-		printf("Age: %f\n", age);
-	else
-		printf("Age: (nil)");
+		printf("Name: (nil)\n");
+	printf("Age: %f\n", age);
 	if (owner != NULL)
 		printf("Owner: %s\n", owner);
 	else
-		printf("Owner: (nil)");
+		printf("Owner: (nil)\n");
 }
