@@ -4,6 +4,38 @@
 #include <string.h>
 
 /**
+ * _strdup - returns a pointer to a newly allocated space in memory, which
+ *  contains a copy of the string given as a parameter
+ * @str: string to be duplicated
+ *
+ * Return: a pointer to the duplicated string. It returns NULL if insufficient
+ *  memory was available
+ */
+
+char *_strdup(char *str)
+{
+	char *new_str;
+	int i;
+	int j;
+
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (str[i] != '\0')
+		i = i + 1;
+	new_str = (char *)malloc(i + 1);
+	if (new_str == NULL)
+		return (NULL);
+	j = 0;
+	while (j < i)
+	{
+		new_str[j] = str[j];
+		j = j + 1;
+	}
+	return (new_str);
+}
+
+/**
  * new_dog - creates a new dog
  * @name: string
  * @age: float
@@ -19,14 +51,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	ans = malloc(sizeof(dog_t *));
 	if (ans == NULL)
 		return (NULL);
-	ans->name = malloc(sizeof(char *));
-	if (ans->name == NULL)
-		return (NULL);
-	strcpy((*ans).name, name);
+	ans->name = _strdup(name);
 	ans->age = age;
-	ans->owner = malloc(sizeof(char *));
-	if (ans->owner == NULL)
-		return (NULL);
-	strcpy((*ans).owner, owner);
+	ans->owner = _strdup(owner);
 	return (ans);
 }
