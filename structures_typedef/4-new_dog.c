@@ -4,6 +4,25 @@
 #include <string.h>
 
 /**
+ * _strlen - length of a string
+ * @s: takes parameter pointer to a char
+ *
+ * Return: length of a string without null character
+ */
+
+int _strlen(char *s)
+{
+	int counter;
+
+	counter = 0;
+	while (s[counter] != '\0')
+	{
+		counter = counter + 1;
+	}
+	return (counter);
+}
+
+/**
  * _strdup - returns a pointer to a newly allocated space in memory, which
  *  contains a copy of the string given as a parameter
  * @str: string to be duplicated
@@ -50,18 +69,24 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *t_name;
 	char *t_owner;
 
-	ans = malloc(sizeof(dog_t *));
+	ans = malloc(sizeof(*ans));
 	if (ans == NULL)
 	{
-		free(ans);
 		return (NULL);
 	}
 	t_name = _strdup(name);
+	if (t_name == NULL)
+	{
+		free(ans);
+	}
 	ans->name = t_name;
-	free(_strdup(name));
 	ans->age = age;
 	t_owner = _strdup(owner);
+	if (t_owner == NULL)
+	{
+		free(ans);
+		free(t_name);
+	}
 	ans->owner = t_owner;
-	free(_strdup(owner));
 	return (ans);
 }
