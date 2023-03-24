@@ -51,19 +51,48 @@ void print_all(const char * const format, ...)
 	printf("\n");
 }
 
+/**
+ * print_char - prints a char
+ * @ap: va_list type
+ *
+ * Return: void
+ */
 void print_char(va_list ap)
 {
 	printf("%c", (char)va_arg(ap, int));
 }
+/**
+ * print_int - prints a int
+ * @ap: va_list type
+ *
+ * Return: void
+ */
+
 void print_int(va_list ap)
 {
 	printf("%i", va_arg(ap, int));
 }
+
+/**
+ * print_float - prints a float
+ * @ap: va_list type
+ *
+ * Return: void
+ */
 void print_float(va_list ap)
 {
 	printf("%f", va_arg(ap, double));
 }
+
+/**
+ * print_string - prints a string
+ * @ap: va_list type
+ *
+ * Return: void
+ */
 void print_string(va_list ap)
 {
-	printf("%s", va_arg(ap, char *));
+	char *str = va_arg(ap, char *);
+
+	str == NULL ? printf("(nil)") : printf("%s", str);
 }
