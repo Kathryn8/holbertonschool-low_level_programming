@@ -65,5 +65,5 @@ void print_float(va_list ap)
 }
 void print_string(va_list ap)
 {
-	char *s_arg = va_arg(ap, char *);
+	printf("%s", va_arg(ap, char *));
 }
