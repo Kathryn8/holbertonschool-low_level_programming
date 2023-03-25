@@ -23,12 +23,12 @@ void print_all(const char * const format, ...)
 		{"i", print_int},
 		{"f", print_float},
 		{"s", print_string},
-		{NULL, NULL}
+		{NULL, NULL},
 	};
 	va_start(ap, format);
 	i = 0;
 	k = 0;
-	while (format[i] != '\0')
+	while (format != NULL && format[i] != '\0')
 	{
 		j = 0;
 		while (pairs[j].ch != NULL)
