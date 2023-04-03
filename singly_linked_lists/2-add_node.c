@@ -24,7 +24,7 @@ int _strlen(char *s)
 }
 
 /**
- * print_list - prints the data in linked list node
+ * add_node - adds a new node to the beginning of a list_t list
  * @head: a pointer to a pointer to the first node
  * @str: a string to be stored in the struct
  *
