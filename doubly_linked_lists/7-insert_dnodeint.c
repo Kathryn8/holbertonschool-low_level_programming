@@ -32,14 +32,16 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (add_dnodeint(h, n));
 	}
 	i = 0;
-	while (ptr != NULL && i < idx)
+	while ((ptr != NULL) && (i < idx))
 	{
 		ptr = ptr->next;
 		i = i + 1;
 	}
-	if ((idx == i + 1) && (ptr->next == NULL))
+	if ((idx == i) && (ptr == NULL))
 	{
-		return (add_dnodeint_end(h, n));
+		*h = add_dnodeint_end(h, n);
+		printf("%d\n", (*h)->n);
+		return (*h);
 	}
 	if (i != idx || ptr == NULL)
 		return (NULL);
