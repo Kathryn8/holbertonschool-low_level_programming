@@ -23,18 +23,26 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		printf("Error - malloc failed\n");
 		return (NULL);
 	}
-	ptr = *h;
-	i = 0;
-	while (i < idx)
-	{
-		ptr = ptr->next;
-		if (ptr == NULL)
-		{
-			return (NULL);
-		}
-		i = i + 1;
-	}
 	new->n = n;
+	new->prev = NULL;
+	new->next = NULL;
+	ptr = *h;
+	if (ptr == NULL)
+	{
+		*h = new;
+		return (*h);
+	}
+		i = 0;
+		while (i < idx)
+		{
+			ptr = ptr->next;
+			if (ptr == NULL)
+			{
+				return (NULL);
+			}
+			i = i + 1;
+		}
+		new->n = n;
 	new->prev = ptr->prev;
 	new->next = ptr;
 	ptr->prev->next = new;
