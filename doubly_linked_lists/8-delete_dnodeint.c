@@ -5,8 +5,8 @@
 
 /**
  * delete_dnodeint_at_index -  deletes the node at index of a linked list
- * @h: pointer to a pointer to the start of the dlistint_t list
- * @idx: index at which the node should be deleted
+ * @head: pointer to a pointer to the start of the dlistint_t list
+ * @index: index at which the node should be deleted
  *
  * Return: 1 if it succeeded, -1 if it failed
  */
