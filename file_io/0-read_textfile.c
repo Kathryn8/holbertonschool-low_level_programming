@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 /**
- * read_textfile -  reads a text file and prints it to the POSIX standard output
+ * read_textfile -  reads a text file and prints to the POSIX standard output
  * @filename: const char *
  * @letters: number of letters it should read and print
  *
@@ -19,7 +19,6 @@ size_t read_textfile(const char *filename, size_t letters)
 
 	if (filename == NULL)
 	{
-		printf("NULL filename - error\n");
 		return (0);
 	}
 	fh = fopen(filename, "r");
