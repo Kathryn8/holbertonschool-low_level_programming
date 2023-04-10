@@ -36,7 +36,6 @@ size_t read_textfile(const char *filename, size_t letters)
 	}
 	else
 	{
-		printf("Error opening file\n");
 		return (0);
 	}
 }
