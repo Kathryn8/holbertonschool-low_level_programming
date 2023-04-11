@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "main.h"
 #include <stddef.h>
 #include <unistd.h>
@@ -13,29 +14,39 @@
  */
 size_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fh;
-	int count;
-	char ch;
+	int fd;
+	char *buffer;
+	ssize_t num_bytes, ret_value;
 
 	if (filename == NULL)
 	{
 		return (0);
 	}
-	fh = fopen(filename, "r");
+	fd = open(filename, O_RDONLY);
 
-	if (fh != NULL)
+	if (fd == -1)
 	{
-		count = 0;
-		while (count < (int)letters && (ch = fgetc(fh)) != EOF)
-		{
-			fprintf(stderr, "%c", ch);
-			count = count + 1;
-		}
-		fclose(fh);
-		return (count);
+		return (0);
 	}
 	else
 	{
-		return (0);
+		buffer = malloc(sizeof(*buffer) * letters);
+		if (buffer == NULL)
+		{
+			return (0);
+		}
+		num_bytes = read(fd, buffer, letters);
+		if (num_bytes == -1)
+		{
+			return (0);
+		}
+		ret_value = write(STDOUT_FILENO, buffer, num_bytes);
+		if (ret_value == -1 || ret_value != num_bytes)
+		{
+			return (0);
+		}
+		free(buffer);
+		close(fd);
+		return (ret_value);
 	}
 }
