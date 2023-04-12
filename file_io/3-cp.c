@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 		w = write(fd_to, buffer, BYTES);
 		if (w == -1)
 		{
-			dprintf(2, "Error: Can't write to %s", argv[2]);
+			dprintf(2, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 
 		}
@@ -56,7 +56,7 @@ int open_from(const char *pathname, int flags, char *filename)
 	fd_from = open(pathname, flags);
 	if (fd_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
 	return (fd_from);
@@ -79,7 +79,7 @@ int open_to(const char *pathname, int flags, int mode, char *filename)
 	fd_to = open(pathname, flags, mode);
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", filename);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
 	return (fd_to);
@@ -102,7 +102,7 @@ ssize_t xread(int fd, void *buf, size_t count, char *filename)
 	num_bytes = read(fd, buf, count);
 	if (num_bytes == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
 	return (num_bytes);
@@ -122,7 +122,7 @@ int xclose(int fd)
 	x = close(fd);
 	if (x == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 	return (0);
