@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	fd_from = open_from(argv[1], O_RDONLY, argv[1]);
-	fd_to = open_to(argv[2], O_CREAT | O_TRUNC | O_RDWR, 0644, argv[2]);
+	fd_to = open_to(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0644, argv[2]);
 
 	r = xread(fd_from, buffer, BYTES, argv[1]);
 	while (r != 0)
