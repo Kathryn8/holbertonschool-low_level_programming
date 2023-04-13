@@ -95,7 +95,7 @@ int open_to(const char *pathname, int flags, int mode, char *filename)
  * Return: number of bytes read otherwise exit program on error.
  */
 
-ssize_t xread(int fd, char *buf, size_t count, char *filename)
+ssize_t xread(int fd, void *buf, size_t count, char *filename)
 {
 	int num_bytes;
 
