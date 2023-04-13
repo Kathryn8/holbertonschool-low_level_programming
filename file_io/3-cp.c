@@ -29,13 +29,12 @@ int main(int argc, char *argv[])
 		w = write(fd_to, buffer, r);
 		if (w == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 
 		}
 		r = xread(fd_from, buffer, BYTES, argv[1]);
 	}
-	dprintf(STDERR_FILENO, "copy success");
 	xclose(fd_from);
 	xclose(fd_to);
 	return (0);
