@@ -1,4 +1,5 @@
 #include "main.h"
+#include <sys/stat.h>
 #define BYTES 1024
 
 /**
@@ -21,7 +22,7 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	fd_from = open_from(argv[1], O_RDONLY, argv[1]);
-	fd_to = open_to(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0644, argv[2]);
+	fd_to = open_to(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664, argv[2]);
 
 	r = xread(fd_from, buffer, BYTES, argv[1]);
 	while (r != 0)
@@ -31,9 +32,13 @@ int main(int argc, char *argv[])
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
-
 		}
 		r = xread(fd_from, buffer, BYTES, argv[1]);
+	}
+	if (chmod(argv[2], 0664) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
 	}
 	xclose(fd_from);
 	xclose(fd_to);
