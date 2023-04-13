@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
 	int fd_from, fd_to;
 	ssize_t r, w;
-	char *buffer[BYTES];
+	char buffer[BYTES];
 
 	if (argc != 3)
 	{
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	r = xread(fd_from, buffer, BYTES, argv[1]);
 	while (r != 0)
 	{
-		w = write(fd_to, buffer, BYTES);
+		w = write(fd_to, buffer, r);
 		if (w == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", argv[2]);
@@ -95,7 +95,7 @@ int open_to(const char *pathname, int flags, int mode, char *filename)
  * Return: number of bytes read otherwise exit program on error.
  */
 
-ssize_t xread(int fd, void *buf, size_t count, char *filename)
+ssize_t xread(int fd, char *buf, size_t count, char *filename)
 {
 	int num_bytes;
 
