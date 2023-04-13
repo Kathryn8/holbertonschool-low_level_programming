@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 		}
 		r = xread(fd_from, buffer, BYTES, argv[1]);
 	}
+	dprintf(STDERR_FILENO, "copy success");
 	xclose(fd_from);
 	xclose(fd_to);
 	return (0);
