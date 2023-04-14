@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
 	int fd_from, fd_to;
 	ssize_t r, w;
 	char buffer[BYTES];
+	int to_exists = 0;
 
 	if (argc != 3)
 	{
@@ -22,6 +23,10 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	fd_from = open_from(argv[1], O_RDONLY, argv[1]);
+	if (access(argv[2], F_OK) == 0)
+	{
+		to_exists = 1;
+	}
 	fd_to = open_to(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664, argv[2]);
 
 	r = xread(fd_from, buffer, BYTES, argv[1]);
@@ -35,7 +40,7 @@ int main(int argc, char *argv[])
 		}
 		r = xread(fd_from, buffer, BYTES, argv[1]);
 	}
-	if (chmod(argv[2], 0664) == -1)
+	if (chmod(argv[2], 0664) == -1 && to_exists == 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
