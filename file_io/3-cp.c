@@ -40,10 +40,9 @@ int main(int argc, char *argv[])
 		}
 		r = xread(fd_from, buffer, BYTES, argv[1]);
 	}
-	if (chmod(argv[2], 0664) == -1 && to_exists == 0)
+	if (to_exists == 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
+		chmod(argv[2], 0664);
 	}
 	xclose(fd_from);
 	xclose(fd_to);
