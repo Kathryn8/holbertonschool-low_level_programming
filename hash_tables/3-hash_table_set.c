@@ -2,7 +2,6 @@
 
 /**
  * create_ht_node - create a new node in the hash table
- * @ht: the hash table you want to add to
  * @key: the key, a string
  * @value: value associated with the key
  *
