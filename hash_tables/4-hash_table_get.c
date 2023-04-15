@@ -17,15 +17,14 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 		return (NULL);
 	}
 	index = key_index((const unsigned char *)key, ht->size);
-	if (ht->array[index] == NULL)
+	while (ht->array[index] != NULL)
 	{
-		return (NULL);
+		if (strcmp(ht->array[index]->key, key) == 0)
+		{
+			value = ht->array[index]->value;
+			return (value);
+		}
+		ht->array[index] = ht->array[index]->next;
 	}
-	while (key != ht->array[index]->key && ht->array[index]->next != NULL)
-	{
-		ht->array[index]->key = ht->array[index]->next->key;
-		ht->array[index]->value = ht->array[index]->next->value;
-	}
-	value = ht->array[index]->value;
-	return (value);
+	return (NULL);
 }
