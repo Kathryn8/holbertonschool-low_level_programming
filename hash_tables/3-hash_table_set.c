@@ -51,21 +51,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 	index = key_index((const unsigned char *)key, ht->size);
-	entry = create_ht_node(key, value);
-	if (entry == NULL)
-	{
-		return (0);
-	}
 	if (ht->array[index] != NULL)
 	{
 		if (strcmp(key, ht->array[index]->key) == 0)
 		{
 			ht->array[index]->value = (char *)value;
-			free(entry->key);
-			free(entry->value);
-			free(entry);
 			return (1);
 		}
+	}
+	entry = create_ht_node(key, value);
+	if (entry == NULL)
+	{
+		return (0);
 	}
 	entry->next = ht->array[index];
 	ht->array[index] = entry;
