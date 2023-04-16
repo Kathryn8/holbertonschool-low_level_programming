@@ -29,6 +29,7 @@ hash_node_t *create_ht_node(const char *key, const char *value)
 		free(entry);
 		return (NULL);
 	}
+	entry->next = NULL;
 	return (entry);
 }
 
