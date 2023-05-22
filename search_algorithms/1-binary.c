@@ -3,6 +3,36 @@
 #define EVEN 0
 
 /**
+ * print_array - short description
+ * @array: a int *data type variable
+ * @left: a int data type variable
+ * @right: a int data type variable
+ *
+ * Return: type is void
+ */
+
+void print_array(int *array, int left, int right)
+{
+	int i;
+
+	i = 0;
+	while (left <= right)
+	{
+		if (i == 0)
+		{
+			printf("Searching in array: %d", array[left]);
+		}
+		else
+		{
+			printf(", %d", array[left]);
+		}
+		left = left + 1;
+		i = i + 1;
+	}
+	printf("\n");
+}
+
+/**
  * binary_search - short description
  * @array: a int *data type variable
  * @size: a size_t data type variable
@@ -13,54 +43,30 @@
 
 int binary_search(int *array, size_t size, int value)
 {
-	size_t i, j;
-	int flag = EVEN;
+	size_t left, right, m;
 
-	if (array == NULL || size < 2)
+	if (array == NULL)
 	{
 		return (-1);
 	}
-	j = 0;
-	while (j < size)
+	left = 0;
+	right = size - 1;
+	while (left <= right)
 	{
-		if (j == 0)
+		print_array(array, left, right);
+		m = floor((left + right) / 2);
+		if (array[m] < value)
 		{
-			printf("Searching in array: %d", array[j]);
+			left = m + 1;
+		}
+		else if (array[m] > value)
+		{
+			right = m - 1;
 		}
 		else
 		{
-			printf(", %d", array[j]);
+			return (m);
 		}
-		j = j + 1;
 	}
-	printf("\n");
-	if (size % 2 == 0)
-	{
-		flag = EVEN;
-		i = (size / 2) - 1;
-		j = size / 2;
-		if (j == 2)
-			i = size / 2;
-	}
-	else
-	{
-		flag = ODD;
-		i = size / 2;
-		j = (size / 2) + 1;
-		if (i < 2)
-			j = size / 2;
-	}
-	printf("size = %ld / i = %ld / j = %ld\n", size, i, j);
-	if (array[i] == value)
-	{
-		return (i);
-	}
-	if (value < array[i])
-	{
-		return (binary_search(array, i, value));
-	}
-	else
-	{
-		return (binary_search(array + j, i, value));
-	}
+	return (-1);
 }
